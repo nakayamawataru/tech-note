@@ -1,0 +1,68 @@
+#if ログインしてないなら
+<div class="logout-header">
+    <div class="wrapper">
+      <div class="left-wrapper">
+          <h1>Hellow　beginner</h1>
+          <p>勉強したことを共有しよう！</p>
+      </div>
+      <div class="right-wrapper">
+          #ユーザー作成機能
+          #私はロボットではありません入れたい
+      </div>
+    </div>
+</div>
+
+#end
+
+
+<div class="left-container">
+    #New投稿
+    #フォローしている人の投稿
+    #タグ検索
+</div>
+
+####################
+
+<div class="main-container">
+    <h3>記事一覧</h3>
+    
+    <% @posts.each do |post| %> #each文
+    
+     <div class="post-left">
+        #アイコン　<img src="<% "/user_images/ユーザーテーブルのimage_name" %>">
+     </div>
+     
+     <div class="post-right">
+        #タイトル  <%= link_to("#ポストテーブルのタイトルpost.title","/posts/#{post.id}") %>
+        #ユーザー名 <%= link_to("#ユーザーテーブルの名前post.user.name","/users/show/#{post.user_id}") %>
+        #いいね数
+     </div>
+     
+    <%end%>
+</div>
+
+
+####################
+
+
+
+<div class="right-cointainer">
+    <div class="user-info">
+        #アイコン
+        #ユーザー名
+        #記事数
+        #いいね数
+        #フォロワー数
+    </div>
+    <div class="News">
+        <h5>ニュース</h5>
+        #News記事
+    </div>
+    <div class="user-ranking">
+        <h5>ユーザーランキング</h5>
+        #each文
+        #アイコン
+        #ユーザー名
+        #いいね数
+    </div>
+</div>

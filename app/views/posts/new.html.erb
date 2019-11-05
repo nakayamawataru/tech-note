@@ -1,0 +1,22 @@
+<div class="main-container">
+    
+    <% @post.errors.full_messages.each do |message| %>
+          <div class="form-error">
+            <%= message %>
+          </div>
+　　<% end %>
+        
+    <h2>投稿する</h2>
+     
+    <% form_tag("/posts/create") do %> #post/createへ送信
+     <div class="workspace">
+        
+        <input type="text" name="title">
+        #タグ登録機能
+        <textarea name="content"></textarea>
+        <input type="submit" valie="投稿">
+
+     </div>
+    <%end%>
+    
+</div>
