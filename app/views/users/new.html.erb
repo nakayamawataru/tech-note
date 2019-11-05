@@ -1,0 +1,22 @@
+<div class = "main-container">
+    
+        
+    <h2>ユーザー登録</h2>
+     
+    <%= form_tag("/users/create") do %> 
+     <div class = "workspace">
+         
+       <% @user.errors.full_messages.each do |message| %>
+          <div class = "form-error">
+            <%= message %>
+          </div>
+　   　<% end %>
+　   　
+        <input type = "text" name = "name" value = "<%= @user.name %>">
+        <input type = "text" name = "mail" value = "<%= @user.mail %>">
+        <input type = "string" name = "password">
+        <input type = "submit" valie = "登録">
+
+     </div>
+    <%end%>
+    

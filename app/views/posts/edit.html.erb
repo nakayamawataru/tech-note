@@ -1,9 +1,9 @@
 <div class = "main-container">
     
         
-    <h2>投稿する</h2>
+    <h2>編集する</h2>
      
-    <%= form_tag("/posts/create") do %> 
+    <%= form_tag("/posts/#{@post.id}/update") do %> 
      <div class = "workspace">
          
        <% @post.errors.full_messages.each do |message| %>
@@ -11,13 +11,13 @@
             <%= message %>
           </div>
 　   　<% end %>
-        <p>タイトル</p>
+        
         <input type = "text" name = "title" value = "<%= @post.title %>">
         #タグ登録機能
         <textarea name = "content"><%= @post.content %></textarea>
-        <input type = "submit" valie = "投稿">
+        <input type = "submit" valie = "編集">
 
      </div>
-    <%end%>
+    <% end %>
     
 </div>

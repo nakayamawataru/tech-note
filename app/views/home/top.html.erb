@@ -1,3 +1,4 @@
+<body>
 #if ログインしてないなら
 <div class="logout-header">
     <div class="wrapper">
@@ -14,6 +15,8 @@
 
 #end
 
+<div class="all-wrapper">
+
 
 <div class="left-container">
     #New投稿
@@ -21,20 +24,21 @@
     #タグ検索
 </div>
 
-####################
+#########
 
 <div class="main-container">
     <h3>記事一覧</h3>
     
-    <% @posts.each do |post| %> #each文
+    <% @posts.each do |post| %> 
     
      <div class="post-left">
-        #アイコン　<img src="<% "/user_images/ユーザーテーブルのimage_name" %>">
+        <% @user = User.find_by(id: post.user_id) %>
+        <img src = "<%= "user_images/#{@user.image_name}" %>">
      </div>
      
      <div class="post-right">
-        #タイトル  <%= link_to("#ポストテーブルのタイトルpost.title","/posts/#{post.id}") %>
-        #ユーザー名 <%= link_to("#ユーザーテーブルの名前post.user.name","/users/show/#{post.user_id}") %>
+        <%= link_to(post.title,"/posts/#{post.id}") %>  
+        <%= link_to(post.user.name,"/users/#{post.user_id}") %>
         #いいね数
      </div>
      
@@ -42,7 +46,7 @@
 </div>
 
 
-####################
+########
 
 
 
@@ -66,3 +70,7 @@
         #いいね数
     </div>
 </div>
+
+</div>
+
+</body>

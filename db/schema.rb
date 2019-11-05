@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191104122556) do
+ActiveRecord::Schema.define(version: 20191105120455) do
 
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "title",      limit: 65535
     t.text     "content",    limit: 65535
     t.integer  "user_id"
     t.datetime "created_at",               null: false
@@ -25,6 +26,7 @@ ActiveRecord::Schema.define(version: 20191104122556) do
     t.string   "image_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "password"
   end
 
 end
