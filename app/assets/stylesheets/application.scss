@@ -13,7 +13,55 @@
  *= require_tree .
  *= require_self
  */
+ul{
+    list-style-type: none;
+    padding:0;
+    margin:0;
+}
 
 header{
+    font-family: "游ゴシック", "YuGothic", "メイリオ", meiryo, sans-serif,"Font Awesome 5 Free";
     background-color: #66CCFF;
+    display: flex;
+    justify-content: space-between;
+    padding:5px;
+    color:white;
+     a:visited { color:white; text-decoration:none;}
+     a:hover { color:white; text-decoration:none;}
+
+}
+
+.header-left{
+        width:40%;
+        margin:auto 50px ;
+        input[type="submit"]{
+            margin-left:10px;
+            width:100px;
+            height:40px;
+            font-size:20px;
+            font-weight: 900;
+        }
+}
+.header-right{
+        display:flex;
+        margin:auto 30px;
+        .list{
+            margin:auto 5px;
+        }
+        
+}
+
+.flash{
+    width:60%;
+    border-radius:70px;
+    color:white;
+    background-color:orange;
+    text-align:center;
+    margin: 0 auto;
+}
+
+body{
+    margin:0;
+    background-color:#EEEEEE;
+    font-family: "游ゴシック", "YuGothic", "メイリオ", meiryo, sans-serif;
 }

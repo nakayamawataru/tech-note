@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user,only:[:edit,:update,:logout]
+  before_action :forbid_login_user,only:[:login_form,:login]
+  
   def show
     @user = User.find_by(id: params[:id])
   end
@@ -21,6 +24,9 @@ class UsersController < ApplicationController
         render("user/new")
       end
   end
+  
+  #登録したらログインするようにする
+  
   
   def edit
     @user = User.find_by(id: params[:id])
@@ -45,5 +51,33 @@ class UsersController < ApplicationController
      end
     
   end
+  
+  def login_form
+  end
+  
+  
+  def login
+    @user = User.find_by(mail:params[:mail],password:params[:password])
+    
+    if @user
+      session[:user_id]=@user.id
+      flash[:notice] = "ログインしました"
+      redirect_to("/")
+    else
+      @error_message="メールアドレスまたはパスワードが間違っています"
+      @mail=params[:mail]
+      render("users/login_form")
+    end
+    
+  end
+  
+  def logout
+    
+    session[:user_id] = nil
+    flash[:notice] = "ログアウトしました"
+    redirect_to("/login")
+
+  end
+  
   
 end

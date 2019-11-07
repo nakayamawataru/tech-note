@@ -1,0 +1,21 @@
+    <div class="search_container"></div>
+    <h3>検索結果</h3>
+    </div>
+
+
+    <% @posts.each do |post| %> 
+    
+    <div class = "post-container">
+       <div class="post-left">
+          <% @user = User.find_by(id: post.user_id) %>
+          <img src = "<%= "user_images/#{@user.image_name}" %>">
+       </div>
+       
+       <div class="post-right">
+          <h4><%= link_to(post.title,"/posts/#{post.id}") %> </h4>
+          <%= link_to(post.user.name,"/users/#{post.user_id}") %>
+          #いいね数
+       </div>
+     </div>
+     
+    <%end%>

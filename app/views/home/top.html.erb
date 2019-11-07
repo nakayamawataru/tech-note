@@ -1,62 +1,77 @@
 <body>
-#if ログインしてないなら
-<div class="logout-header">
+ 
+ <% if @current_user == nil %>
+  <div class="logout-header">
     <div class="wrapper">
       <div class="left-wrapper">
           <h1>Hellow　beginner</h1>
           <p>勉強したことを共有しよう！</p>
       </div>
       <div class="right-wrapper">
-          #ユーザー作成機能
+          <div class="home-signup">
+            <h4>サインアップ</h4>
+            <span>ユーザー名</span>
+            <input type="text"><br>
+            <span>メールアドレス</span>
+            <input type="text"><br>
+            <span>パスワード</span>
+            <input type="text"><br>
           #私はロボットではありません入れたい
+          </div>
       </div>
     </div>
-</div>
+  </div>
 
-#end
+ <% end %>
+
 
 <div class="all-wrapper">
 
 
 <div class="left-container">
-    #New投稿
-    #フォローしている人の投稿
-    #タグ検索
+    <div class = "left-info" >
+      <ul>
+        <li>#New投稿</li>
+        <li>#フォローしている人の投稿</li>
+        <li>#タグ検索</li>
+      </ul>
+    </div>
 </div>
 
-#########
-
 <div class="main-container">
+    <div class = "main-container-header">
+        
     <h3>記事一覧</h3>
-    
+    </div>
+
     <% @posts.each do |post| %> 
     
-     <div class="post-left">
-        <% @user = User.find_by(id: post.user_id) %>
-        <img src = "<%= "user_images/#{@user.image_name}" %>">
-     </div>
-     
-     <div class="post-right">
-        <%= link_to(post.title,"/posts/#{post.id}") %>  
-        <%= link_to(post.user.name,"/users/#{post.user_id}") %>
-        #いいね数
+    <div class = "post-container">
+       <div class="post-left">
+          <% @user = User.find_by(id: post.user_id) %>
+          <img src = "<%= "user_images/#{@user.image_name}" %>">
+       </div>
+       
+       <div class="post-right">
+          <h4><%= link_to(post.title,"/posts/#{post.id}") %> </h4>
+          <%= link_to(post.user.name,"/users/#{post.user_id}") %>
+          #いいね数
+       </div>
      </div>
      
     <%end%>
 </div>
 
 
-########
-
-
-
 <div class="right-cointainer">
     <div class="user-info">
-        #アイコン
-        #ユーザー名
-        #記事数
-        #いいね数
-        #フォロワー数
+        <ul>
+          #アイコン
+          #ユーザー名
+          #記事数
+          #いいね数
+          #フォロワー数
+        </ul>
     </div>
     <div class="News">
         <h5>ニュース</h5>

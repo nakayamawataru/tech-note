@@ -7,17 +7,19 @@
 <div class="main-container">
     <div class="article">
         <div class="post-user">
-　    　　#アイコン <img src ="<%= "/user_images/#{@user.image_name}"  %>">
-        　#ユーザー名 <%= link_to(@user.name,"/users/#{@user.id}") %>
-        　#created_at <%= @post.created_at %>
-        　#updated_at <%= @post.updated_at %>
-        　#編集　<%= link_to("編集","/posts/#{@post.id}/edit") %>
+　    　　<img src ="<%= "/user_images/#{@user.image_name}"  %>">
+        　<%= link_to(@user.name,"/users/#{@user.id}") %>
+        　<%= @post.created_at %>
+        　<%= @post.updated_at %>
+        　<%= link_to("編集","/posts/#{@post.id}/edit") %>
+          <%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>
+
         　#いいね数
     　  </div>
     　  <div class="post-content">
-        　#タイトル <p> <%= @post.title %> </p>
+        　<p> <%= @post.title %> </p>
         　#タグ
-        　#記事　<p> <%= @post.content %> </p>
+        　<p> <%= @post.content %> </p>
     　  </div>
     </div>
     <div class="comments">
