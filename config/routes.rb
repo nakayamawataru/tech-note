@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post "login" => "users#login"
   post "logout" => "users#logout"
 
-  get "/" => "home#top"
+  get "/" => "home#index"
   
   
   get "posts/new" => "posts#new"
@@ -20,6 +20,5 @@ Rails.application.routes.draw do
   post "posts/:id/destroy" => "posts#destroy"
   
 
-  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
