@@ -1,20 +1,23 @@
 <div class="all-wrapper">
     <div class="left-container">
-        #アイコン      <img src="<%= "/user_images/#{@user.image_name}" %>">
-        #ユーザー名    <h3><%= @user.name %></h3>
+        <img src="<%= "/user_images/#{@user.image_name}" %>">
+        <h3><%= @user.name %></h3>
         <%= link_to("ユーザー情報編集","/users/#{@user.id}/edit") %>
         #フォロータグ
     </div>
     <div class="main-container">
-        #投稿一覧
+        投稿一覧
         #いいねした一覧
         #コメントした一覧
         <div class="post-index">
-            #each文
-            #タイトル
-            #create_at
-            #update_at
-            #いいね数
+          <% @user.posts.each do |post| %>
+            <div class = "user-posted">
+              <%= link_to(post.title,"/posts/#{post.id}") %>
+              <%= post.created_at %>
+              <i class="fa fa-thumbs-o-up"></i><%= @likes_count = Like.where(post_id: post.id).count %>
+            </div>
+          <% end %>
+
         </div>
     </div>
     

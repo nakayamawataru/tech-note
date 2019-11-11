@@ -19,6 +19,7 @@ class UsersController < ApplicationController
       )
       if @user.save
         flash[:notice] = "ようこそTech Noteへ"
+        session[:user_id] = @user.id
         redirect_to("/")
       else
         render("user/new")
@@ -26,8 +27,6 @@ class UsersController < ApplicationController
   end
   
   #登録したらログインするようにする
-  
-  
   def edit
     @user = User.find_by(id: params[:id])
   end
@@ -57,9 +56,9 @@ class UsersController < ApplicationController
   
   
   def login
-    @user = User.find_by(mail:params[:mail],password:params[:password])
+    @user = User.find_by(mail:params[:mail])
     
-    if @user
+    if @user && @user.authenticate(params[:password])
       session[:user_id]=@user.id
       flash[:notice] = "ログインしました"
       redirect_to("/")

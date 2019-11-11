@@ -12,7 +12,9 @@
   
   <header>
     <div class="header-left">
-  　　   <%= link_to("Tech Note","/") %>
+      <%= link_to("/")do %>
+       <img src="/logo.jpg" heigh=1000 width=130>
+      <% end %>
   　　   
      <div class="search_form">
        <%= form_tag("/", {method:"get"}) do %>
