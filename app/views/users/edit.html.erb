@@ -11,13 +11,13 @@
             <%= message %>
           </div>
 　   　<% end %>
-　   　 <p>ユーザー名</p>
-        <input type = "text" name = "name" value = "<%= @user.name %>">
-    　　<p>メールアドレス</p>
-        <input type = "text" name = "mail" value = "<%= @user.mail %>">
-        <p>プロフィール画像</p>
-        <input type = "file" name = "image_name"><br>
-        <input type = "submit" valie = "編集"><br>
+　    　  <p>ユーザー名</p>
+          <p class="other"><input type = "text" name = "name" value = "<%= @user.name %>"></p>
+    　  　<p>メールアドレス</p>
+          <p class="other"><input type = "text" name = "mail" value = "<%= @user.mail %>"></p>
+          <p>プロフィール画像</p>
+          <p class="other"><input type = "file" name = "image_name"></p><br>
+          <p class="other"><input type = "submit" valie = "編集"></p><br>
 
      </div>
     <% end %>

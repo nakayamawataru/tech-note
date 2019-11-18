@@ -33,12 +33,23 @@
     .workspace{
         width: 70%;
         margin: 10px auto;
+        position:relative;
         p{
             margin: 0.2em;
         }
-        input{
+        .other{
+            position:relative;
+            padding-bottom: 2.5em;
+        
+          input{
+            position:absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%)translateX(-50%);
+            -webkit-transform: translateY(-50%)translateX(-50%);
             height: 2.5em;
             width: 20em;
+          }
         }
     }
 }
