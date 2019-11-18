@@ -22,11 +22,10 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         redirect_to("/")
       else
-        render("user/new")
+        render("users/new")
       end
   end
   
-  #登録したらログインするようにする
   def edit
     @user = User.find_by(id: params[:id])
   end

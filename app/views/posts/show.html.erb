@@ -31,11 +31,16 @@
 
     　  </div>
     　  <div class="post-content">
-        　<p> タイトル：<%= @post.title %> </p>
-        　#タグ
+    　      
+        　<h3> タイトル：<%= @post.title %> </h3>
+        　
+        　<% if @post.post_image %>
         　<div class="post-image">
-        　<image src="<%= "/post_images/#{@post.post_image}" %>"></image></div>
-        　<p> <%= @post.content %> </p><br>
+        　    <image src="<%= "/post_images/#{@post.post_image}" %>"></image>
+        　</div>
+        　<% end %>
+        　 
+        　<p> <%= simple_format(@post.content) %> </p><br>
     　  </div>
     </div>
     <div class="comments">

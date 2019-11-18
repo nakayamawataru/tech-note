@@ -60,21 +60,20 @@
           <%= @likes_count %>
        </div>
      </div>
-     
     <%end%>
+     <%= paginate @posts %>
 </div>
 
 
 <div class="right-cointainer">
-    <div class="user-info">
-        <ul>
-          #アイコン
-          #ユーザー名
-          #記事数
-          #いいね数
-          #フォロワー数
-        </ul>
-    </div>
+    <% if @current_user %>
+        <div class="user-info">
+          <img src="<%= "user_images/#{@current_user.image_name}" %>">
+          <h4><%= @current_user.name %></h4>
+          投稿記事数：<%= @current_user.posts.count %>
+          
+        <% end %>
+        </div>
     <div class="News">
         <h5>ニュース</h5>
         #News記事
