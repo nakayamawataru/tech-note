@@ -2,8 +2,12 @@ class UsersController < ApplicationController
   before_action :authenticate_user,only:[:edit,:update,:logout]
   before_action :forbid_login_user,only:[:login_form,:login]
   
+  PER = 5
+
   def show
     @user = User.find_by(id: params[:id])
+    @posts = @user.posts.page(params[:page]).per(PER)
+    @likes = @user.likes
   end
   
   def new
@@ -22,11 +26,10 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         redirect_to("/")
       else
-        render("user/new")
+        render("users/new")
       end
   end
   
-  #登録したらログインするようにする
   def edit
     @user = User.find_by(id: params[:id])
   end
@@ -35,7 +38,7 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
      @user.name = params[:name]
      @user.mail = params[:mail]
-     @user.password = params[:password]
+     
       if params[:image_name]
         @user.image_name = "#{@user.id}.jpg"
         image = params[:image_name]

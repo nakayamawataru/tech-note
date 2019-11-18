@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+
 ul{
     list-style-type: none;
     padding:0;
@@ -49,6 +51,10 @@ header{
         margin:auto 30px;
         .list{
             margin:auto 5px;
+        }
+        img{
+            width:50px;
+               height:50px;
         }
         
 }

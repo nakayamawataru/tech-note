@@ -1,4 +1,4 @@
-<div class = "main-container">
+<div class = "form-container">
     
         
     <h2>ユーザー登録</h2>
@@ -11,11 +11,13 @@
             <%= message %>
           </div>
 　   　<% end %>
-　   　
+　   　 <p>ユーザー名</p>
         <input type = "text" name = "name" value = "<%= @user.name %>">
+    　　<p>メールアドレス</p>
         <input type = "text" name = "mail" value = "<%= @user.mail %>">
-        <input type = "string" name = "password">
-        <input type = "submit" valie = "登録">
+        <p>パスワード</p>
+        <input type = "string" name = "password"><br>
+        <input type = "submit" valie = "登録"><br>
 
      </div>
     <%end%>

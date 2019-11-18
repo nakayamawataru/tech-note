@@ -18,8 +18,38 @@
     span{
         font-size: 1.7em;
     }
+    img{
+        width: 70px;
+        height: 70px;
+    }
 }
 
 .post-content{
     background-color:white;
+    padding: 20px;
+    h3{
+        border-bottom: solid gray 1px;
+    }
+
+}
+
+.post-image{
+       img{
+        max-width: 700px;
+        height: auto;
+      }
+}
+
+.post-container{
+    text-align: center;
+    
+    .workspace{
+        margin: 4em auto;
+        width: 80%;
+        input{width: 40em;}
+         textarea{
+             width: 80%;
+             height: 40em;
+         }
+    }
 }

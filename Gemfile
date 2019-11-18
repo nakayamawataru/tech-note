@@ -49,3 +49,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'ransack'
 gem  "bcrypt"
+gem 'wysiwyg-rails'
+gem 'kaminari'
+gem 'rspec-rails'

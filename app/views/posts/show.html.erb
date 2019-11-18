@@ -1,12 +1,17 @@
 <div class="all-wrapper">
+    
  <div class="left-container">
     <i class="fa fa-thumbs-o-up"></i>
     <%= @likes_count %>
-    <% if Like.find_by(user_id:@current_user.id,post_id:@post.id) %>
-      <%= link_to("いいねを取り消す","/likes/#{@post.id}/destroy",{method:"post"}) %>
-    <% else %>
-      <%= link_to("いいねする","/likes/#{@post.id}/create",{method:"post"}) %>
+    
+    <% if @current_user %>
+      <% if Like.find_by(user_id:@current_user.id,post_id:@post.id) %>
+        <%= link_to("いいねを取り消す","/likes/#{@post.id}/destroy",{method:"post"}) %>
+      <% else %>
+        <%= link_to("いいねする","/likes/#{@post.id}/create",{method:"post"}) %>
+      <% end %>
     <% end %>
+    
  </div>
 
 
@@ -26,9 +31,16 @@
 
     　  </div>
     　  <div class="post-content">
-        　<p> タイトル：<%= @post.title %> </p>
-        　#タグ
-        　<p> <%= @post.content %> </p>
+    　      
+        　<h3> タイトル：<%= @post.title %> </h3>
+        　
+        　<% if @post.post_image %>
+        　<div class="post-image">
+        　    <image src="<%= "/post_images/#{@post.post_image}" %>"></image>
+        　</div>
+        　<% end %>
+        　 
+        　<p> <%= simple_format(@post.content) %> </p><br>
     　  </div>
     </div>
     <div class="comments">
