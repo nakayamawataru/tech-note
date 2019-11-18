@@ -45,7 +45,8 @@
     </div>
 
     <% @posts.each do |post| %> 
-    
+    <% @likes_count = Like.where(post_id:post.id).count %>
+
     <div class = "post-container">
        <div class="post-left">
           <% @user = User.find_by(id: post.user_id) %>
@@ -55,7 +56,8 @@
        <div class="post-right">
           <h4><%= link_to(post.title,"/posts/#{post.id}") %> </h4>
           <%= link_to(post.user.name,"/users/#{post.user_id}") %>
-          #いいね数
+          <i class="fa fa-thumbs-o-up"></i>
+          <%= @likes_count %>
        </div>
      </div>
      
