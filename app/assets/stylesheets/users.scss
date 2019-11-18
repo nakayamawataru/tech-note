@@ -10,3 +10,35 @@
         border-top:solid 1px gray;
     }
 }
+.post-index{
+    margin: 10px;
+    padding: 10px;
+    .user-posted{
+        background-color: white;
+        margin: 1px;
+        padding: 4px;
+        
+    }
+}
+
+.form-container{
+    border-radius: 10px;
+    background-color: #DDFFFF;
+    max-width:50%;
+    height:auto;
+    margin: 50px auto;
+    text-align:center;
+    padding: 3em 0 3em 0;
+
+    .workspace{
+        width: 70%;
+        margin: 10px auto;
+        p{
+            margin: 0.2em;
+        }
+        input{
+            height: 2.5em;
+            width: 20em;
+        }
+    }
+}

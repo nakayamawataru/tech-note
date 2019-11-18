@@ -61,7 +61,10 @@ input{
         h4{margin: 5px 0;}
         a{color:black;}
         a:visited { color:black; text-decoration:none； }
-        .post-right{ margin-left:10px;}
+        .post-right{
+            text-align: left;
+            margin-left:10px;}
+        
 
     }
 }
@@ -76,4 +79,5 @@ input{
         height: auto;
         width: 200px;
     }
+    
 }

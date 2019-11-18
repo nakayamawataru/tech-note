@@ -39,3 +39,17 @@
         height: auto;
       }
 }
+
+.post-container{
+    text-align: center;
+    
+    .workspace{
+        margin: 4em auto;
+        width: 80%;
+        input{width: 40em;}
+         textarea{
+             width: 80%;
+             height: 40em;
+         }
+    }
+}

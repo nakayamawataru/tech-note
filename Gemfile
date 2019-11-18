@@ -51,3 +51,4 @@ gem 'ransack'
 gem  "bcrypt"
 gem 'wysiwyg-rails'
 gem 'kaminari'
+gem 'rspec-rails'
