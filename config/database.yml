@@ -52,3 +52,4 @@ production:
   database: media_app_production
   username: media_app
   password: <%= ENV['MEDIA_APP_DATABASE_PASSWORD'] %>
+  host: <%= ENV['DATABASE_URL'] %>
