@@ -50,7 +50,7 @@
     <div class = "post-container">
        <div class="post-left">
           <% @user = User.find_by(id: post.user_id) %>
-          <img src = "<%= "user_images/#{@user.image_name}" %>">
+          <img src = "<%= "assets/user_images/#{@user.image_name}" %>">
        </div>
        
        <div class="post-right">
@@ -68,7 +68,7 @@
 <div class="right-cointainer">
     <% if @current_user %>
         <div class="user-info">
-          <img src="<%= "user_images/#{@current_user.image_name}" %>">
+          <img src="<%= "assets/user_images/#{@current_user.image_name}" %>">
           <h4><%= @current_user.name %><h4>
           投稿記事数：<%= @current_user.posts.count %>
           
