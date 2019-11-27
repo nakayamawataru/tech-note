@@ -1,7 +1,7 @@
 <div class="all-wrapper">
   
     <div class="left-container">
-        <img src="<%= "/user_images/#{@user.image_name}" %>">
+        <img src="<%= "/assets/user_images/#{@user.image_name}" %>">
         <h3><%= @user.name %></h3>
         <%= link_to("ユーザー情報編集","/users/#{@user.id}/edit") %>
     </div>

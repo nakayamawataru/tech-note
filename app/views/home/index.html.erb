@@ -8,16 +8,18 @@
           <p>勉強したことを共有しよう！</p>
       </div>
       <div class="right-wrapper">
+        <%= form_tag("/users/create") do %>
+        　<h4>サインアップ</h4>
           <div class="home-signup">
-            <h4>サインアップ</h4>
             <span>ユーザー名</span>
-            <input type="text"><br>
+            <input type="text" name="name"><br>
             <span>メールアドレス</span>
-            <input type="text"><br>
+            <input type="text" name="mail"><br>
             <span>パスワード</span>
-            <input type="text"><br>
-          #私はロボットではありません入れたい
+            <input type="string" name="password"><br>
+            <input type="submit" value="登録">
           </div>
+        <% end %>
       </div>
     </div>
   </div>
@@ -50,7 +52,7 @@
     <div class = "post-container">
        <div class="post-left">
           <% @user = User.find_by(id: post.user_id) %>
-          <img src = "<%= "user_images/#{@user.image_name}" %>">
+          <img src = "<%= "assets/user_images/#{@user.image_name}" %>">
        </div>
        
        <div class="post-right">
@@ -68,7 +70,7 @@
 <div class="right-cointainer">
     <% if @current_user %>
         <div class="user-info">
-          <img src="<%= "user_images/#{@current_user.image_name}" %>">
+          <img src="<%= "assets/user_images/#{@current_user.image_name}" %>">
           <h4><%= @current_user.name %><h4>
           投稿記事数：<%= @current_user.posts.count %>
           

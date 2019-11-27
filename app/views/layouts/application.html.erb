@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MediaApp</title>
+    <title>Tech Note</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -13,7 +13,7 @@
   <header>
     <div class="header-left">
       <%= link_to("/")do %>
-       <img src="/logo.jpg" heigh=1000 width=130>
+       <img src="/assets/logo.jpg" heigh=1000 width=130>
       <% end %>
   　　   
      <div class="search_form">
@@ -32,7 +32,7 @@
        # いいねした一覧
        <%= link_to("投稿する","/posts/new")%>
        </div>
-       <img src = "<%= "/user_images/#{@current_user.image_name}" %>">
+       <img src = "<%= "/assets/user_images/#{@current_user.image_name}" %>">
        <ul>
            <li><%= link_to("マイページ","/users/#{@current_user.id}") %></li>
            <li><%= link_to("ログアウト","/logout",{method:"post"}) %></li>

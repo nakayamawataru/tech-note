@@ -19,7 +19,7 @@
     <div class="article">
         <div class="post-user">
             <div class="post-user-left">
-　    　　     <img src ="<%= "/user_images/#{@user.image_name}"  %>">
+　    　　     <img src ="<%= "/assets/user_images/#{@user.image_name}"  %>">
         　      <span><%= link_to(@user.name,"/users/#{@user.id}") %></span>
         　  </div>
         　  <div class="post-user-right">
@@ -36,7 +36,7 @@
         　
         　<% if @post.post_image %>
         　<div class="post-image">
-        　    <image src="<%= "/post_images/#{@post.post_image}" %>"></image>
+        　    <image src="<%= "/assets/post_images/#{@post.post_image}" %>"></image>
         　</div>
         　<% end %>
         　 
