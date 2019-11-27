@@ -8,16 +8,18 @@
           <p>勉強したことを共有しよう！</p>
       </div>
       <div class="right-wrapper">
+        <%= form_tag("/users/create") do %>
+        　<h4>サインアップ</h4>
           <div class="home-signup">
-            <h4>サインアップ</h4>
             <span>ユーザー名</span>
-            <input type="text"><br>
+            <input type="text" name="name"><br>
             <span>メールアドレス</span>
-            <input type="text"><br>
+            <input type="text" name="mail"><br>
             <span>パスワード</span>
-            <input type="text"><br>
-          #私はロボットではありません入れたい
+            <input type="string" name="password"><br>
+            <input type="submit" value="登録">
           </div>
+        <% end %>
       </div>
     </div>
   </div>
