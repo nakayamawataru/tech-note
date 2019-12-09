@@ -1,0 +1,94 @@
+<body>
+ 
+ <% if @current_user == nil %>
+  <div class="logout-header">
+    <div class="wrapper">
+      <div class="left-wrapper">
+          <h1>Hellow　beginner</h1>
+          <p>勉強したことを共有しよう！</p>
+      </div>
+      <div class="right-wrapper">
+        <%= form_tag("/users/create") do %>
+        　<h4>サインアップ</h4>
+          <div class="home-signup">
+            <span>ユーザー名</span>
+            <input type="text" name="name"><br>
+            <span>メールアドレス</span>
+            <input type="text" name="mail"><br>
+            <span>パスワード</span>
+            <input type="string" name="password"><br>
+            <input type="submit" value="登録">
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+ <% end %>
+
+
+<div class="all-wrapper">
+
+
+<div class="left-container">
+    <div class = "left-info" >
+      <ul>
+        <li>#New投稿</li>
+        <li>#フォローしている人の投稿</li>
+        <li>#タグ検索</li>
+      </ul>
+    </div>
+</div>
+
+<div class="main-container">
+    <div class = "main-container-header">
+        
+    <h3>記事一覧</h3>
+    </div>
+
+    <% @posts.each do |post| %> 
+    <% @likes_count = Like.where(post_id:post.id).count %>
+
+    <div class = "post-container">
+       <div class="post-left">
+          <% @user = User.find_by(id: post.user_id) %>
+          <img src = "<%= "assets/user_images/#{@user.image_name}" %>">
+       </div>
+       
+       <div class="post-right">
+          <h4><%= link_to(post.title,"/posts/#{post.id}") %> </h4>
+          <%= link_to(post.user.name,"/users/#{post.user_id}") %>
+          <i class="fa fa-thumbs-o-up"></i>
+          <%= @likes_count %>
+       </div>
+     </div>
+    <%end%>
+     <%= paginate @posts %>
+</div>
+
+
+<div class="right-cointainer">
+    <% if @current_user %>
+        <div class="user-info">
+          <img src="<%= "assets/user_images/#{@current_user.image_name}" %>">
+          <h4><%= @current_user.name %><h4>
+          投稿記事数：<%= @current_user.posts.count %>
+          
+        <% end %>
+        </div>
+    <div class="News">
+        <h5>ニュース</h5>
+        #News記事
+    </div>
+    <div class="user-ranking">
+        <h5>ユーザーランキング</h5>
+        #each文
+        #アイコン
+        #ユーザー名
+        #いいね数
+    </div>
+</div>
+
+</div>
+
+</body>

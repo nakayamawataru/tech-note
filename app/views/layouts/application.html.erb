@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tech Note</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/81b3830422.js" crossorigin="anonymous"></script>
+    <%= favicon_link_tag('favicon.ico') %>
+  </head>
+  
+  
+  <header>
+    <div class="header-left">
+      <%= link_to("/")do %>
+       <img src="/assets/logo.jpg" heigh=1000 width=130>
+      <% end %>
+  　　   
+     <div class="search_form">
+       <%= form_tag("/", {method:"get"}) do %>
+         <input type="string" name="search">
+         <input type="submit" value="検索"> 
+       <% end %>
+     </div>
+
+    </div>
+    
+    <% if @current_user %> 
+     <div class="header-right">
+       <div class="list">
+       <%= @current_user.name %>
+       # いいねした一覧
+       <%= link_to("投稿する","/posts/new")%>
+       </div>
+       <img src = "<%= "/assets/user_images/#{@current_user.image_name}" %>">
+       <ul>
+           <li><%= link_to("マイページ","/users/#{@current_user.id}") %></li>
+           <li><%= link_to("ログアウト","/logout",{method:"post"}) %></li>
+       </ul>
+     </div>
+    
+    <% else %>
+      <div class="logout-header-right">
+        <%= link_to("ユーザー登録","/signup") %>
+        <%= link_to("ログイン","/login")%>
+      </div>
+    
+    <% end %>
+  </header>
+  
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
