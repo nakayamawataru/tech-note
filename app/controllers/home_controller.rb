@@ -9,6 +9,9 @@ class HomeController < ApplicationController
       @posts = Post.where("(title LIKE ?) or (content LIKE ?)", "%#{@search}%","%#{@search}%").page(params[:page]).per(PER)
     end
     
+    @likes = Like.all.order(created_at: "DESC")
+    @recent_likes = @likes.first(5)
+    @users = User.all.order(created_at: "DESC")
   end
   
 end
