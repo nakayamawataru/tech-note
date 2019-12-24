@@ -34,6 +34,12 @@ ul{list-style-type: none;}
 
 .left-container{
     width:30%;
+    .recent_like_posts{
+        font-size: 0.7em;
+        background-color: white;
+        margin-top: 0.1em;
+        padding: 0.5em;
+    }
 }
 
 
@@ -75,13 +81,27 @@ input{
 
 
 
-.right-container{width:30%;}
-
-.user-info{
-    padding: 2em 0 2em 2em;
-    img{
-        height: auto;
-        width: 200px;
-    }
+.right-container{
+    margin: 1em;
+    width:30%;
     
 }
+    
+.user-info{
+        padding: 2em 0 2em 2em;
+        img{
+            height: auto;
+            width: 200px;
+        }
+}
+
+.recent_users{
+        .recent_users_info{
+            display: flex;
+                img{
+                width:2em;
+                height:2em;
+                }
+
+        }
+}    
