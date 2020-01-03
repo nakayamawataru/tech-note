@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user,only:[:edit,:update,:logout]
   before_action :forbid_login_user,only:[:login_form,:login]
+  before_action :ensure_correct_user,only:[:edit,:update]
   
   PER = 5
 
@@ -81,5 +82,11 @@ class UsersController < ApplicationController
 
   end
   
-  
+  def ensure_correct_user
+    @user = User.find_by(id: params[:id])
+    if @user.id != @current_user.id
+      flash[:notice] = "権限がありません"
+      redirect_to("/")
+    end
+  end  
 end
