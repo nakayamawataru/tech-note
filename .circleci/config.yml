@@ -10,7 +10,6 @@ jobs:
       - image: circleci/ruby:2.6.3-node-browsers
         RAILS_ENV: test
         DB_HOST: 127.0.0.1
-        DB_PASSWORD: password
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -19,6 +18,7 @@ jobs:
       - image: circleci/mysql:5.5.62-ram
         MYSQL_DATABASE: media_app_test
         MYSQL_ROOT_PASSWORD: password
+        MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
 
     working_directory: ~/repo
 
