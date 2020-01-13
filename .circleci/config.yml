@@ -8,7 +8,7 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/ruby:2.6.3-node-browsers
-        environment: |
+        environment:
           RAILS_ENV: test
           DB_HOST: 127.0.0.1
 
@@ -18,7 +18,7 @@ jobs:
       # - image: circleci/postgres:9.4
       - image: circleci/mysql:8.0-ram
         command: --default-authentication-plugin=mysql_native_password
-        environment: |
+        environment:
           MYSQL_DATABASE: media_app_test
           MYSQL_ROOT_PASSWORD: password
           MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
