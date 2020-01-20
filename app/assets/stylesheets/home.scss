@@ -1,13 +1,12 @@
 ul{list-style-type: none;}
 
+.index-all-wrapper{
+    background-image: url("/home-background.png");
+    margin: 0;
+    padding-bottom: 2em;
+    display: flex;
+}
 
-.logout-header{
-    background-color:#66CCFF;
-    margin:0;
-}
-.wrapper{
-    display:flex;
-}
 
 .left-wrapper{
     margin:auto 100px;
@@ -28,9 +27,6 @@ ul{list-style-type: none;}
     }
 }
 
-.all-wrapper{
-    display: flex;
-}
 
 .left-container{
     width:30%;

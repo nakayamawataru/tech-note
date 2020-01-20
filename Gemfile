@@ -36,6 +36,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
+  gem 'rspec_junit_formatter' #circleCI導入のため
 end
 
 group :development do

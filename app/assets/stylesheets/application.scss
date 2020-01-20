@@ -23,14 +23,19 @@ ul{
 
 header{
     font-family: "游ゴシック", "YuGothic", "メイリオ", meiryo, sans-serif,"Font Awesome 5 Free";
-    background-color: #66CCFF;
+    background-image: url("/background.png");
+    background-size: cover;
+
+}
+
+.top-header{
     display: flex;
     justify-content: space-between;
     padding:5px;
     color:white;
      a:visited { color:white; text-decoration:none;}
      a:hover { color:white; text-decoration:none;}
-
+    
 }
 
 .header-left{
@@ -57,6 +62,16 @@ header{
                height:50px;
         }
         
+}
+
+.logout-header{
+    .wrapper{
+        display: flex;
+        justify-content: space-between;
+        .right-wrapper{
+            margin-right: 10em;
+        }
+    }
 }
 
 .flash{

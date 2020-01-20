@@ -1,33 +1,9 @@
 <body>
  
- <% if @current_user == nil %>
-  <div class="logout-header">
-    <div class="wrapper">
-      <div class="left-wrapper">
-          <h1>Hellow　beginner</h1>
-          <p>勉強したことを共有しよう！</p>
-      </div>
-      <div class="right-wrapper">
-        <%= form_tag("/users/create") do %>
-        　<h4>サインアップ</h4>
-          <div class="home-signup">
-            <span>ユーザー名</span>
-            <input type="text" name="name"><br>
-            <span>メールアドレス</span>
-            <input type="text" name="mail"><br>
-            <span>パスワード</span>
-            <input type="string" name="password"><br>
-            <input type="submit" value="登録">
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
- <% end %>
 
 
-<div class="all-wrapper">
+
+<div class="index-all-wrapper">
 
 
 <div class="left-container">
