@@ -12,11 +12,14 @@
           </div>
 　   　<% end %>
         <p>タイトル</p>
-        <input type = "text" name = "title" value = "<%= @post.title %>">
+          <input type = "text" name = "title" value = "<%= @post.title %>">
         <p>本文</p>
-        <textarea id="text-content" name = "content"><%= @post.content %></textarea>
+          <textarea id="text-content" name = "content"><%= @post.content %></textarea>
         <p>画像</p>
-        <input type = "file" name ="post_image"><br>
+          <input type = "file" name ="post_image"><br>
+        <p>Youtube(URLを貼り付け)</p>
+          <input type = "url" name = "youtube_url"><br>
+        
         <input type = "submit" valie = "投稿">
 
      </div>

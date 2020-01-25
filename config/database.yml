@@ -15,13 +15,13 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password: password
+  password: 
   socket: /var/lib/mysql/mysql.sock
 
 development:
   <<: *default
   database: media_app_development
-  host: db
+  #host: db
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

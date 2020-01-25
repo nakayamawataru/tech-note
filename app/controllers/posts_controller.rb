@@ -9,6 +9,9 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.find_by(id: params[:id])
+    @youtube_url = @post.youtube_url
+    @url = @youtube_url.last(11)#埋め込みURLなどにも対応するときに使う
+    
     @user = @post.user
     @likes_count = Like.where(post_id:@post.id).count
   end
@@ -17,7 +20,8 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(title: params[:title],
                      content: params[:content],
-                     user_id: @current_user.id) 
+                     user_id: @current_user.id,
+                     youtube_url: params[:youtube_url]) 
     @post.save
     
     if params[:post_image]
