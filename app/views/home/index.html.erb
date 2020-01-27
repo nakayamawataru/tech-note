@@ -44,6 +44,10 @@
           <div class = "post_image">
             <% if post.post_image %>
               <image width="150" height="100" src = "<%= "/assets/post_images/#{post.post_image}" %>"></image>
+            <% elsif post.youtube_url.presence %>
+              <% @youtube_url = post.youtube_url %>
+              <% @url = @youtube_url.last(11) %>
+              <iframe width="200" height="100" src="https://www.youtube.com/embed/<%= @url %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <% else %>
               <image width="150" height="100" src = "/assets/no_image.png"></image>
             <% end %>
