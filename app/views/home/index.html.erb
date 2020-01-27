@@ -20,24 +20,37 @@
     <div class = "main-container-header">
         <h3>記事一覧</h3>
     </div>
-
-    <% @posts.each do |post| %> 
-    <% @likes_count = Like.where(post_id:post.id).count %>
-
-    <div class = "post-container">
-        <div class="post-left">
-          <% @user = User.find_by(id: post.user_id) %>
-          <img src = "<%= "assets/user_images/#{@user.image_name}" %>">
+    <div class = "index-container">
+        <% @posts.each do |post| %> 
+        <% @likes_count = Like.where(post_id:post.id).count %>
+    
+        <div class = "post-container">
+          <div class = "post-container-head">
+            <div class="post-left">
+              <% @user = User.find_by(id: post.user_id) %>
+              <img src = "<%= "assets/user_images/#{@user.image_name}" %>">
+            </div>
+               
+            <div class="post-right">
+              <h4><%= link_to(post.title,"/posts/#{post.id}") %> </h4>
+              <%= link_to(post.user.name,"/users/#{post.user_id}") %>
+              <i class="fa fa-thumbs-o-up"></i>
+              <%= @likes_count %>
+            </div>
+          </div>
+          <div class = "post-text">
+            <%= truncate(post.content, length: 70) %>
+          </div>
+          <div class = "post_image">
+            <% if post.post_image %>
+              <image width="150" height="100" src = "<%= "/assets/post_images/#{post.post_image}" %>"></image>
+            <% else %>
+              <image width="150" height="100" src = "/assets/no_image.png"></image>
+            <% end %>
+          </div>
         </div>
-           
-        <div class="post-right">
-          <h4><%= link_to(post.title,"/posts/#{post.id}") %> </h4>
-          <%= link_to(post.user.name,"/users/#{post.user_id}") %>
-          <i class="fa fa-thumbs-o-up"></i>
-          <%= @likes_count %>
-        </div>
-    </div>
-     <%end%>
+         <%end%>
+     </div>
      <%= paginate @posts %>
 </div>
 
