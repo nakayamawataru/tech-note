@@ -11,6 +11,7 @@ jobs:
         environment:
           MYSQL_DATABASE: media_app_test
           MYSQL_ALLOW_EMPTY_PASSWORD: true
+          MYSQL_PASSWORD: ""
 
     working_directory: ~/repo
 
