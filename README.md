@@ -2,7 +2,7 @@
 
 技術記事投稿アプリ
 
-Ruby 2.6.5
+Ruby 2.6.5　<br>
 Rails 5.0
 MySQL 5.5.62
 本番環境 ： AWS Elastic beanstalk
