@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+技術記事投稿アプリ
 
-Things you may want to cover:
+Ruby 2.6.5
+Rails 5.0
+MySQL 5.5.62
+本番環境 ： AWS Elastic beanstalk
+CI ： CircleCI
+テスト : Rspec
+開発環境 : AWS Cloud9、Docker
 
-* Ruby version
+ユーザー登録・編集・削除
+記事投稿・編集・削除・検索
+いいね機能
+画像投稿機能
+Youtube動画投稿機能
+ページネーション機能
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+技術知識のストック先としてポートフォリオ作成
+独学・制作期間２ヶ月
