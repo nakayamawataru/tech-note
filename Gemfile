@@ -56,3 +56,5 @@ gem  "bcrypt"
 gem 'wysiwyg-rails'
 gem 'kaminari'
 
+gem 'omniauth'
+gem 'omniauth-twitter'
