@@ -1,86 +1,86 @@
 <body>
- 
-
-
-
-<div class="index-all-wrapper">
-
-
-<div class="left-container">
-    <h5>最近いいねされた記事</h5>
-    <% @recent_likes.each do |like| %>
-      <div class = "recent_like_posts" >
-        <% @recent_like_posts = Post.find_by(id: like.post_id) %>
-          <%= link_to(@recent_like_posts.title,"/posts/#{@recent_like_posts.id}") %>
-      </div>
-    <% end %>
-</div>
-
-<div class="main-container">
-    <div class = "main-container-header">
-        <h3>記事一覧</h3>
-    </div>
-    <div class = "index-container">
-        <% @posts.each do |post| %> 
-        <% @likes_count = Like.where(post_id:post.id).count %>
-    
-        <div class = "post-container">
-          <div class = "post-container-head">
-            <div class="post-left">
-              <% @user = User.find_by(id: post.user_id) %>
-              <img src = "<%= "assets/user_images/#{@user.image_name}" %>">
-            </div>
-               
-            <div class="post-right">
-              <h4><%= link_to(post.title,"/posts/#{post.id}") %> </h4>
-              <%= link_to(post.user.name,"/users/#{post.user_id}") %>
-              <i class="fa fa-thumbs-o-up"></i>
-              <%= @likes_count %>
-            </div>
-          </div>
-          <div class = "post-text">
-            <%= truncate(post.content, length: 70) %>
-          </div>
-          <div class = "post_image">
-            <% if post.post_image %>
-              <image width="150" height="100" src = "<%= "/assets/post_images/#{post.post_image}" %>"></image>
-            <% elsif post.youtube_url.presence %>
-              <% @youtube_url = post.youtube_url %>
-              <% @url = @youtube_url.last(11) %>
-              <iframe width="200" height="100" src="https://www.youtube.com/embed/<%= @url %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <% else %>
-              <image width="150" height="100" src = "/assets/no_image.png"></image>
-            <% end %>
-          </div>
-        </div>
-         <%end%>
-     </div>
-     <%= paginate @posts %>
-</div>
-
-
-<div class="right-container">
-    <% if @current_user %>
-    <div class="user-info">
-      <img src="<%= "assets/user_images/#{@current_user.image_name}" %>">
-      <h4><%= @current_user.name %><h4>
-      投稿記事数：<%= @current_user.posts.count %>
-    </div>
-    <% end %>
-        
-    <h5>最近登録したユーザー</h5>
-    <div class="recent_users">
-        <% @recent_users = @users.first(5) %>
-        <% @recent_users.each do |user| %>
-          <div class = "recent_users_info">
-            <img src = "<%= "assets/user_images/#{user.image_name}" %>">
-            <%= link_to(user.name,"/users/#{user.id}") %>
+   
+  
+  
+  
+  <div class="index-all-wrapper">
+  
+  
+    <div class="left-container">
+        <h5>最近いいねされた記事</h5>
+        <% @recent_likes.each do |like| %>
+          <div class = "recent_like_posts" >
+            <% @recent_like_posts = Post.find_by(id: like.post_id) %>
+              <%= link_to(@recent_like_posts.title,"/posts/#{@recent_like_posts.id}") %>
           </div>
         <% end %>
-        
     </div>
-</div>
-
-</div>
+    
+    <div class="main-container">
+        <div class = "main-container-header">
+            <h3>記事一覧</h3>
+        </div>
+        <div class = "index-container">
+            <% @posts.each do |post| %> 
+            <% @likes_count = Like.where(post_id:post.id).count %>
+        
+            <div class = "post-container">
+              <div class = "post-container-head">
+                <div class="post-left">
+                  <% @user = User.find_by(id: post.user_id) %>
+                  <img src = "<%= "assets/user_images/#{@user.image_name}" %>">
+                </div>
+                   
+                <div class="post-right">
+                  <h4><%= link_to(post.title,"/posts/#{post.id}") %> </h4>
+                  <%= link_to(post.user.name,"/users/#{post.user_id}") %>
+                  <i class="fa fa-thumbs-o-up"></i>
+                  <%= @likes_count %>
+                </div>
+              </div>
+              <div class = "post-text">
+                <%= truncate(post.content, length: 70) %>
+              </div>
+              <div class = "post_image">
+                <% if post.post_image %>
+                  <image width="150" height="100" src = "<%= "/assets/post_images/#{post.post_image}" %>"></image>
+                <% elsif post.youtube_url.presence %>
+                  <% @youtube_url = post.youtube_url %>
+                  <% @url = @youtube_url.last(11) %>
+                  <iframe width="200" height="100" src="https://www.youtube.com/embed/<%= @url %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <% else %>
+                  <image width="150" height="100" src = "/assets/no_image.png"></image>
+                <% end %>
+              </div>
+            </div>
+             <%end%>
+         </div>
+         <%= paginate @posts %>
+    </div>
+    
+    
+    <div class="right-container">
+        <% if @current_user %>
+        <div class="user-info">
+          <img src="<%= "assets/user_images/#{@current_user.image_name}" %>">
+          <h4><%= @current_user.name %><h4>
+          投稿記事数：<%= @current_user.posts.count %>
+        </div>
+        <% end %>
+            
+        <h5>最近登録したユーザー</h5>
+        <div class="recent_users">
+            <% @recent_users = @users.first(5) %>
+            <% @recent_users.each do |user| %>
+              <div class = "recent_users_info">
+                <img src = "<%= "assets/user_images/#{user.image_name}" %>">
+                <%= link_to(user.name,"/users/#{user.id}") %>
+              </div>
+            <% end %>
+            
+        </div>
+    </div>
+    
+  </div>
 
 </body>

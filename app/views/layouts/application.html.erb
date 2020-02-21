@@ -34,7 +34,11 @@
       
          <%= link_to("投稿する","/posts/new")%>
          </div>
-         <img src = "<%= "/assets/user_images/#{@current_user.image_name}" %>">
+         <% if @current_user.image_name == nil %>
+           <img src = "<%= "#{@current_user.image_url}" %>">
+         <% else %>
+           <img src = "<%= "/assets/user_images/#{@current_user.image_name}" %>">
+         <% end %>
          <ul>
              <li><%= link_to("マイページ","/users/#{@current_user.id}") %></li>
              <li><%= link_to("ログアウト","/logout",{method:"post"}) %></li>
@@ -67,7 +71,8 @@
                <input type="text" name="mail"><br>
                <span>パスワード</span>
                <input type="password" name="password"><br>
-               <input type="submit" value="登録">
+               <input type="submit" value="登録"><br>
+               <%= link_to 'Twitterでログイン', '/auth/twitter' %>
              </div>
            <% end %>
          </div>

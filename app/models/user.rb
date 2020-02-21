@@ -11,4 +11,18 @@ class User < ApplicationRecord
     def likes
         return Like.where(user_id: self.id)
     end
+    
+  def self.find_or_create_from_auth(auth)
+    provider = auth[:provider]
+    uid = auth[:uid]
+    name = auth[:info][:user_name]
+    image_url = auth[:info][:image]
+
+    self.find_or_create_by(provider: provider, uid: uid) do |user|
+      user.name = name
+      user.image_url = image_url
+      user.save(validate: false)
+    end
+  end
+  
 end
